@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/screen-16x10.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="shower list">
+    <header class="caption">
+      <h1>Shower Presentation Engine</h1>
+      <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Верстка таблиц</h2>
+      <p>теги, основные правила размещения и свойства CSS</p>
+      <figure>
+        <img
+          class="cover"
+          src="pictures/cover.jpg"
+          alt="Hands on the orange typewriter in a park"
+        />
+      </figure>
+    </section>
+
+    <section class="slide">
+      <h2>Теги таблицы</h2>
+      <ol>
+        <li>
+          ячейка <kbd>&lt;td&gt; <i class="comment">текст</i> &lt;/td&gt;</kbd>
+        </li>
+        <li>
+          ячейка-заголовок
+          <kbd>&lt;th&gt; <b class="comment">текст</b> &lt;/th&gt;</kbd>
+        </li>
+        <li>
+          строка
+          <kbd
+            >&lt;tr&gt;
+            <i class="comment">&lt;th&gt; или &lt;td&gt;</i> &lt;/tr&gt;</kbd
+          >
+        </li>
+        <li>
+          <kbd
+            >&lt;tbody&gt; <i class="comment">tr &gt; td</i> &lt;/tbody&gt;</kbd
+          >
+        </li>
+        <li>
+          пояснение
+          <pre> <kbd
+			>&lt;caption&gt;<i class="comment">
+	&lt;h4&gt; пояснение для таблицы&lt;/h4&gt;</i>
+&lt;/caption&gt;</kbd
+          ></pre>
+        </li>
+        <li>
+          таблица
+          <kbd
+            >&lt;table&gt;<i class="comment"> все теги таблицы </i>
+            &lt;/table&gt;</kbd
+          >
+        </li>
+      </ol>
+      <!-- <p class="note">Тесты по теме вебинара</p> -->
+    </section>
+
+    <section class="slide" style="padding-left: 15px;">
+      <table class="padding-free table-example">
+        <caption>
+          <h2>Пример таблицы</h2>
+        </caption>
+        <tbody>
+          <tr>
+            <th style="border: 1px solid gold;">Заголовок строки</th>
+            <th style="border: 1px solid gold;">Заголовок строки</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid gold;">текст ячейки</td>
+            <td style="border: 1px solid gold;">текст ячейки</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre><code><kbd>&lt;table&gt;
+  &lt;caption&gt;&lt;h2&gt;Пример таблицы&lt;/h2&gt;&lt;/caption&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;th&gt;Заголовок строки&lt;/th&gt;&lt;th&gt;Заголовок строки&lt;/th&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;текст ячейки&lt;/td&gt;&lt;td&gt;текст ячейки&lt;/td&gt;&lt;/tr&gt;	
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</kbd></code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Первичность строк / tr</h2>
+      <p>
+        Ячейка (<b>th</b> / <b>td</b>) всегда должна быть
+        <mark>внутри строки <b>tr</b></mark>
+      </p>
+      <h2>Расчет числа ячеек таблицы</h2>
+      <ul>
+        <li>
+          <kbd>столбцы: <b>td</b> / <b>th</b></kbd> число ячеек в каждом столбце
+          <mark>одинаково</mark> с остальными столбцами таблицы
+        </li>
+        <li>
+          <kbd>строки: <b>tr</b></kbd> число ячеек в каждой строке
+          <mark>одинаково</mark> с остальными строками таблицы
+        </li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Объединение ячейк</h2>
+      <h3><kbd>colspan</kbd> атрибут для объединения ячеек в столбцах</h3>
+      <pre><code>&lt;<b>tr</b>&gt;
+	&lt;td&gt;<b class="red">1</b>&lt;/td&gt;&lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;
+&lt;/<b>tr</b>&gt;</code></pre>
+      <pre><code>&lt;<b>tr</b>&gt;
+	&lt;td <mark>colspan="3"</mark>&gt;<b class="red">123</b>&lt;/td&gt;
+&lt;/<b>tr</b>&gt;</code></pre>
+    </section>
+    <section class="slide">
+      <h2>Объединение ячеек</h2>
+      <h3><kbd>rowspan</kbd> атрибут для объединения ячеек в строках</h3>
+      <pre><code>&lt;<b>tr</b>&gt;&lt;td&gt;<b class="red">1</b>&lt;/td&gt;&lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;
+&lt;<b>tr</b>&gt;&lt;td&gt;<b class="red">1</b>&lt;/td&gt;&lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;
+&lt;<b>tr</b>&gt;&lt;td&gt;<b class="red">1</b>&lt;/td&gt;&lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;</code></pre>
+      <pre><code>&lt;<b>tr</b>&gt;&lt;td <mark>rowspan="3"</mark>&gt;<b class="red">111</b>&lt;/td&gt;&lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;
+&lt;<b>tr</b>&gt;                        &lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;
+&lt;<b>tr</b>&gt;                        &lt;td&gt;<b class="red">2</b>&lt;/td&gt;&lt;td&gt;<b class="red">3</b>&lt;/td&gt;&lt;/<b>tr</b>&gt;</code></pre>
+      <!-- <mark>rowspan="3"</mark> -->
+    </section>
+    <section class="slide">
+      <h2>Объединение ячеек</h2>
+      <img src="./pictures/span.png" alt="" height="450" width="450" />
+      <p>
+        <a
+          href="https://codepen.io/Gorbulin/pen/QJoVzo"
+          target="_blank"
+          ref="noopener nofollow "
+          >Задача</a
+        >
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Теги группировки строк</h2>
+      <ul>
+        <li><kbd>thead</kbd> <span class="comment">необязателен</span></li>
+        <li><kbd>tbody</kbd> <span class="red">обязателен</span></li>
+        <li><kbd>tfoot</kbd> <span class="comment">необязателен</span></li>
+      </ul>
+      <pre><code><kbd>&lt;table&gt;
+	&lt;caption&gt; <span class="comment">описание</span>&lt;/caption&gt;
+	&lt;thead&gt;<span class="comment">&lt;tr&gt;&lt;th&gt;1&lt;/th&gt;&lt;th&gt;2&lt;/th&gt;&lt;/tr&gt;</span>&lt;/thead&gt;
+	&lt;tbody&gt;<span class="comment">&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;</span>&lt;/tbody&gt;
+	&lt;tfoot&gt;<span class="comment">&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;</span>&lt;/tfoot&gt;
+&lt;/table&gt;
+		</kbd></code></pre>
+    </section>
+    <section class="slide">
+      <h2>Теги группировки колонок</h2>
+      <ul>
+        <li><kbd>colgroup</kbd></li>
+        <li>
+          <kbd>col</kbd>
+          <span class="comment"
+            >одиночный тег, может содержать атрибуты вместо из размещения в
+            colgroup
+          </span>
+        </li>
+      </ul>
+      <table class="padding-free colgroup">
+        <caption>
+          colgroup
+        </caption>
+        <tbody>
+          <colgroup span="2" style="background-color: #0f0"></colgroup>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre><code>&lt;tbody&gt;
+	&lt;colgroup <mark>span="2" style="background-color: #0f0"</mark>&gt;
+	&lt;/colgroup&gt;
+&lt;/tbody&gt;
+</code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>CSS: border-collapse</h2>
+      <p>Для таблиц определены две совершенно разные модели border</p>
+      <ul>
+        <li>
+          <kbd>separate</kbd> <span class="comment"></span>
+          <ul>
+            <li>
+              каждая ячейка таблицы расположена на некотором расстоянии от
+              других ячеек
+            </li>
+            <li>рамки ячеек не сливаются друг с другом</li>
+            <li>
+              <span class="red">нельзя задать border</span> для строк, групп
+              строк, столбцов и групп столбцов
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>CSS: border-collapse</h2>
+      <p>Для таблиц определены две совершенно разные модели border</p>
+      <ul>
+        <li>
+          <kbd>collapse</kbd> <span class="comment"></span>
+          <ul>
+            <li>
+              между border вокруг таблицы и ее внешними ячейками никогда не
+              может быть пробела
+            </li>
+            <li>
+              <span class="red">можно задать border</span> для таблицы, ячеек,
+              строк, группам строк, столбцам и группам столбцов
+            </li>
+            <li>при слиянии рамки между ячейками центрируются</li>
+            <li>половина ширины рамки таблицы включена в ширину таблицы</li>
+            <li>две или более рамки сливаются</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>CSS: border-collapse</h2>
+      <table
+        class="padding-free"
+        style="border-collapse: separate; border: 4px solid gold; width: 80%; margin: auto; border-spacing: 5px 1em;"
+      >
+        <caption>
+          separate
+        </caption>
+        <tbody>
+          <tr>
+            <td style="border: 4px solid blue;">table</td>
+            <td style="border: 4px solid blue;">border-collapse:separate;</td>
+          </tr>
+          <tr>
+            <td style="border: 4px solid orangered;">table</td>
+            <td style="border: 4px solid orangered;">
+              border-spacing:5px 1em;
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 4px solid green;">table</td>
+            <td style="border: 4px solid green;">border:4px solid gold;</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="border: 4px solid green;">td</td>
+            <td style="border: 4px solid green;">border:4px solid green;</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section class="slide">
+      <h2>Преимущетсво бо'льших значений бордера</h2>
+      <table
+        class="padding-free"
+        style="border-collapse: collapse; border: 4px solid gold; width: 80%; margin: auto;"
+      >
+        <caption>
+          collapse
+        </caption>
+        <tbody>
+          <tr>
+            <td style="border: 4px solid blue;">table</td>
+            <td style="border: 4px solid blue;">border-collapse: collapse;</td>
+          </tr>
+          <tr>
+            <td style="border: 4px solid orangered;">table</td>
+            <td style="border: 4px solid orangered;">border:4px solid gold;</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="border: 4px solid green;">td :</td>
+            <td style="border: 4px solid green;">border:4px solid green;</td>
+          </tr>
+        </tfoot>
+      </table>
+      <table
+        class="padding-free"
+        style="border-collapse: collapse; border: 5px solid gold; width: 80%; margin: auto;"
+      >
+        <caption>
+          collapse
+        </caption>
+        <tbody>
+          <tr>
+            <td style="border: 4px solid blue;">table :</td>
+            <td style="border: 4px solid blue;">border-collapse:collapse;</td>
+          </tr>
+          <tr>
+            <td style="border: 4px solid orangered;">table</td>
+            <td style="border: 4px solid orangered;">border:5px solid gold;</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td style="border: 4px solid green;">td</td>
+            <td style="border: 4px solid green;">border:4px solid green;</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section class="slide">
+      <h2>Пустые ячейки</h2>
+      <p>
+        Существует возможность скрыть <span class="red">оформление</span> пустой
+        ячейки в модели <span class="red">border-collapse: separate</span>
+      </p>
+      <p><kbd>empty-cells: hide;</kbd> <span class="comment">скрыть</span></p>
+      <table class="empty padding-free">
+        <caption>
+          empty-cells: hide
+        </caption>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>text</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>text</td>
+            <td>text</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Если все ячейки строки пусты и значение <b>empty-cells</b> для всех
+        равно <b>hide</b>, то вся строка интерпретируется так, как будто для
+        элемента строки задано <b>display: none.</b>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Пустые ячейки</h2>
+      <p>
+        Существует возможность показать
+        <span class="red">оформление</span> пустой ячейки в модели
+        <span class="red">border-collapse: separate</span>
+      </p>
+      <p><kbd>empty-cells: show;</kbd> <span class="comment">показать</span></p>
+      <table class="show padding-free">
+        <caption>
+          empty-cells: show
+        </caption>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>text</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>text</td>
+            <td>text</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="slide">
+      <h2>Размеры ячеек</h2>
+      <ul>
+        <li>
+          <kbd>height</kbd> для всех ячеек
+          <span class="red">одной строки / row</span> будет одинаковой
+        </li>
+        <li>
+          <kbd>height</kbd> одной <span class="red">строки / row</span> может
+          отличаться от высоты другой
+        </li>
+        <li>
+          <kbd>width</kbd> для всех ячеек
+          <span class="red">одного столбца</span> будет одинаковой
+        </li>
+        <li>
+          <kbd>width</kbd> для различных <span class="red">столбцов</span> может
+          отличаться
+        </li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Фиксированная и автоматическая ширина ячеек</h2>
+      <h4><kbd>table-layout:</kbd></h4>
+      <ul>
+        <li>
+          <kbd>fixed</kbd>
+          <ul>
+            <li>
+              <span class="comment"
+                >любая ячейка с заданной шириной отличной от auto определит
+                ширину столбца</span
+              >
+            </li>
+            <li>
+              <span class="comment"
+                >если таблица оказывается шире суммарной ширины всех ее
+                столбцов, разница делится на число столбцов и добавляется к
+                каждому из них</span
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <kbd>auto</kbd>
+          <span class="comment"
+            >пытается вместить ширину ячеек в заданную ширину таблицы
+          </span>
+        </li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Выравнивание внутри ячейки</h2>
+      <ul>
+        <li>
+          <kbd>width</kbd>
+          <span class="comment">используем <mark>text-align</mark></span>
+        </li>
+        <li>
+          <kbd>height</kbd>
+          <span class="comment">используем <mark>vertical-align</mark></span>
+        </li>
+        <table class="padding-free" style="width: 95%; margin: 25px auto;">
+          <tr>
+            <td style="border: 2px solid orangered; width: 100px;">
+              text-align:
+            </td>
+            <td
+              style="text-align: center; border: 2px solid orangered; width: 100px;"
+            >
+              center center center
+            </td>
+            <td
+              style="text-align: left; border: 2px solid orangered; width: 100px;"
+            >
+              left left left
+            </td>
+            <td
+              style="text-align: right; border: 2px solid orangered; width: 100px;"
+            >
+              right right right
+            </td>
+            <td
+              style="text-align: justify; border: 2px solid orangered; width: 100px;"
+            >
+              justify justify justify
+            </td>
+          </tr>
+        </table>
+
+        <table class="padding-free" style="width: 95%; margin: 25px auto;">
+          <tr>
+            <td
+              style="vertical-align: baseline; border: 2px solid green; width: 100px;"
+            >
+              vertical-align:
+            </td>
+            <td
+              style="vertical-align: top; border: 2px solid green; width: 100px;"
+            >
+              top
+            </td>
+            <td
+              style="vertical-align: bottom; border: 2px solid green; width: 100px;"
+            >
+              bottom
+            </td>
+            <td
+              style="vertical-align: middle; border: 2px solid green; width: 100px;"
+            >
+              middle
+            </td>
+            <td
+              style="vertical-align: baseline; border: 2px solid green; width: 100px;"
+            >
+              baseline
+            </td>
+          </tr>
+        </table>
+      </ul>
+    </section>
+    <section class="slide" id="see-more"><h1>Спасибо за внимание!</h1></section>
+
+    <!--
+      <footer class="badge">
+      	<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+      </footer>
+    -->
+
+    <!-- <div class="progress"></div> -->
+
+    <script src="./js/shower.min.js"></script>
+    <!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+  </body>
+</html>
